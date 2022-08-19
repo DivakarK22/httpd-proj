@@ -1,0 +1,18 @@
+---
+- name: create new container and tag and push to repo
+  hosts: ansible
+
+
+  tasks:
+  - name: Create docker image
+    command: docker build -t httpd-proj:latest .
+    args:
+     chdir: /opt/docker/httpd-proj
+
+  - name: Create tag and push to docker hub
+    command: docker tag httpd-proj:latest divakar2201/httpd-proj:latest
+    ignore_errors: yes
+
+  - name: push image to docker
+    command: docker push divakar2201/httpd-proj:latest
+    ignore_errors: yes
