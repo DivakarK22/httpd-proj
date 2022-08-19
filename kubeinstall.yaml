@@ -5,7 +5,10 @@
     - name: deploy httpd-proj on kubernetes
       shell: |
         kubectl delete deployment.apps/httpd-proj
-        cd /home/master/deployments/httpd-proj
+        cd /home/master/deployments/
+        git clone git@github.com:DivakarK22/httpd-proj.git
+        cd httpd-proj
+        git pull
         kubectl apply -f deploy.yaml
         kubectl apply -f service.yaml
         kubectl scale deployment.apps/httpd-proj --replicas=0
