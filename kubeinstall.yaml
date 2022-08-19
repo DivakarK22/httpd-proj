@@ -9,6 +9,6 @@
         kubectl apply -f deploy.yaml
         kubectl apply -f service.yaml
         kubectl scale deployment.apps/httpd-proj --replicas=0
-        kubectl scale deployment.apps/httpd-proj --replicas=1
+        kubectl scale deployment.apps/httpd-proj --replicas=2
         cd /home/master/deployments/httpd-proj
         kubectl apply -f service.yaml
