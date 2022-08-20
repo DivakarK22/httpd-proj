@@ -7,11 +7,14 @@
       shell: |
         kubectl delete deployment.apps/wedding-proj
         cd /home/master/deployments/
-        git clone git@github.com:DivakarK22/wedding-httpd.git
+        git clone git clone git@github.com:DivakarK22/httpd-proj.git
+        cd /home/master/deployments/httpd-proj
+        git checkout wedding-proj
         cd /home/master/deployments/wedding-httpd
         kubectl apply -f deploy.yaml
         kubectl apply -f service.yaml
         kubectl scale deployment.apps/wedding-proj --replicas=0
         kubectl scale deployment.apps/wedding-proj --replicas=2
-        cd /home/master/deployments/wedding-proj
+        cd /home/master/deployments/httpd-proj
+        git checkout wedding-proj
         kubectl apply -f service.yaml
