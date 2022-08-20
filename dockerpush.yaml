@@ -8,7 +8,7 @@
   - name: Create docker image
     command: docker build -t wedding-proj:latest .
     args:
-     chdir: /opt/docker/wedding
+     chdir: /opt/docker/http-proj
 
   - name: Create tag and push to docker hub
     command: docker tag wedding-proj:latest divakar2201/wedding-proj:latest
