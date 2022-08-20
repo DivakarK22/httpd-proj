@@ -6,7 +6,7 @@ metadata:
      app: wedding-proj
 
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: wedding-proj
