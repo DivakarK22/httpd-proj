@@ -1,24 +1,25 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: httpd-proj
+  name: git-proj
   labels:
-     app: httpd-proj
+     app: git-proj
 
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: httpd-proj
+      app: git-proj
 
   template:
     metadata:
       labels:
-        app: httpd-proj
+        app: git-proj
     spec:
       containers:
-      - name: httpd-proj
-        image: divakar2201/httpd-proj:latest
+      - name: git-proj
+        image: divakar2201/git-proj:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -27,3 +28,4 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
+
