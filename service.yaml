@@ -1,0 +1,17 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: wedding-proj
+  labels:
+    app: wedding-proj
+spec:
+  selector:
+    app: wedding-proj
+
+  ports:
+    - port: 80
+      targetPort: 80
+
+  type: LoadBalancer
+
