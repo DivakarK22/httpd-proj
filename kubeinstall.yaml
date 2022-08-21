@@ -13,7 +13,7 @@
         kubectl apply -f deploy.yaml
         kubectl apply -f service.yaml
         kubectl scale deployment.apps/wedding-proj --replicas=0
-        kubectl scale deployment.apps/wedding-proj --replicas=3
+        kubectl scale deployment.apps/wedding-proj --replicas=1
         cd /home/master/deployments/httpd-proj
         git checkout wedding-proj
         kubectl apply -f service.yaml
