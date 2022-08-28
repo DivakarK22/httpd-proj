@@ -8,7 +8,7 @@
   - name: Create docker image
     command: docker build -t git-proj:latest .
     args:
-     chdir: /opt/docker/git-proj
+     chdir: /opt/docker/httpd-proj
 
   - name: Create tag and push to docker hub
     command: docker tag git-proj:latest divakar2201/git-proj:latest
