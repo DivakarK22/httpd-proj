@@ -1,5 +1,5 @@
 ---
- - hosts: kubernetes
+ - hosts: k8master
    user: root
    tasks:
     - name: deploy httpd-proj on kubernetes
