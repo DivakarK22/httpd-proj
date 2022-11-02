@@ -1,18 +1,18 @@
 
-
 ---
- - hosts: kubernetes
-   user: root
+ - hosts: k8master
+   become: NO
    tasks:
     - name: deploy git-proj on kubernetes
       shell: |
         kubectl delete deployment.apps/git-proj
-        cd /home/master/deployments
-        git clone git@github.com:DivakarK22/git-proj.git
-        cd /home/master/deployments/git-proj
+        cd $HOME/git
+        git clone https://github.com/DivakarK22/git-proj.git
+        cd $HOME/git/git-proj
         kubectl apply -f deploy.yaml
         kubectl apply -f service.yaml
         kubectl scale deployment.apps/git-proj --replicas=0
         kubectl scale deployment.apps/git-proj --replicas=1
-        cd /home/master/deployments/git-proj
+        cd $HOME/git/git-proj
         kubectl apply -f service.yaml
+
