@@ -6,14 +6,14 @@
     - name: deploy httpd-proj on kubernetes
       shell: |
         kubectl delete deployment.apps/wedding-proj
-        cd /home/master/deployments/
+        cd $HOME/git
         git clone git@github.com:DivakarK22/httpd-proj.git
-        cd /home/master/deployments/httpd-proj
+        cd $HOME/git/httpd-proj
         git checkout wedding-proj
         kubectl apply -f deploy.yaml
         kubectl apply -f service.yaml
         kubectl scale deployment.apps/wedding-proj --replicas=0
         kubectl scale deployment.apps/wedding-proj --replicas=1
-        cd /home/master/deployments/httpd-proj
+        cd $HOME/git/httpd-proj
         git checkout wedding-proj
         kubectl apply -f service.yaml
